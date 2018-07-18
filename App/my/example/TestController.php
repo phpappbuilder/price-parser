@@ -2,8 +2,7 @@
 namespace App\my\example;
 ini_set("memory_limit", "512M");
 
-use App\phpappbuilder\helpers\Form;
-use App\phpappbuilder\router\Router;
+
 use App\phpappbuilder\controller\Controller;
 use \Symfony\Component\HttpFoundation\Response;
 use App\phpappbuilder\template\Template;
@@ -94,7 +93,7 @@ class TestController extends Controller
                             }
                 }
                 $cd++;
-                if ($cd>=20){break;}
+                if ($cd>=50){break;}
             }
             unset($reader);
             unset($spreadsheet);
@@ -111,10 +110,6 @@ class TestController extends Controller
 
                 $tktk.='</tr>';
             }
-
-
-
-
 
             $template = new Template( AdminTemplate::class );
             $this->response->setContent($template

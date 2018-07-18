@@ -10,8 +10,10 @@ class ParsePhoto
 
         if($dom->getElementsByTagName('table')!=null && $dom->find('table')[0]->children(1)->children(0)->children(3)->has_child()){
             $elems = $dom->find('table')[0]->children(1)->children(0)->children(3)->lastChild()->attr['href'];
+            unset($dom);
             return 'http://uaz-upi.com'.$elems;
         } else {
+            unset($dom);
             return false;
         }
 

@@ -112,14 +112,14 @@ class Build extends Command
                                 'image'=>$pars_tek?$pars_tek:'',
                                 'vendor'=>$arr[6]
                             ];
-                            $output->writeln("[new item][".$cd."]". " - " . $arr[3]);
+                            $output->writeln("[new item][".$cd."]". " - " . $arr[3].'['.$pars_tek.']');
                             $new_item++;
                         }
                         unset($pars_tek);
                     }
                 }
                 $cd++;
-                if ($cd>=80){break;}
+                //if ($cd>=80){break;}
             }
             unset($reader);
             unset($spreadsheet);
@@ -191,10 +191,10 @@ class Build extends Command
 
 
 
-        //file_put_contents('assets/result.xml', xmlwriter_output_memory($xw));
+        file_put_contents('assets/result.xml', xmlwriter_output_memory($xw));
         $output->writeln("[final new items][".$new_item."]");
         $output->writeln("[final new categories][".$new_category."]");
-        $output->writeln(xmlwriter_output_memory($xw));
+
 
     }
 }
